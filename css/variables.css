@@ -1,0 +1,48 @@
+/* globals */
+
+:root{
+
+    /* Brand Colors */
+
+    --primary:#315236;
+    --primary-light:#6E8B74;
+
+    --accent:#D6A86A;
+
+    --cream:#FFF8F2;
+
+    --tan:#F3E5D4;
+
+    --brown:#5A4634;
+
+    --dark:#2F2F2F;
+
+    --white:#FFFFFF;
+
+    /* Fonts */
+
+    --heading-font:'Cormorant Garamond', serif;
+
+    --body-font:'Poppins', sans-serif;
+
+    /* Shadows */
+
+    --shadow-sm:0 4px 12px rgba(0,0,0,.08);
+
+    --shadow-md:0 10px 30px rgba(0,0,0,.12);
+
+    --shadow-lg:0 20px 50px rgba(0,0,0,.15);
+
+    /* Border Radius */
+
+    --radius-sm:8px;
+
+    --radius-md:16px;
+
+    --radius-lg:30px;
+
+    /* Animation */
+
+    --transition:.35s ease;
+
+}
