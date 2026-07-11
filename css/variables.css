@@ -1,1 +1,14 @@
-:root { --green: #315236; --green-soft: #6e8b74; --cream: #fff8f2; --tan: #f3e5d4; --brown: #5a4634; --dark: #2f2f2f; --accent: #d6a86a; --white: #fff; --heading: 'Cormorant Garamond', Georgia, serif; --body: 'Poppins', sans-serif; --shadow: 0 14px 40px rgba(68, 52, 36, .12); --radius: 1.25rem; }
+:root { 
+  --green: #315236; 
+  --green-soft: #6e8b74; 
+  --cream: #fff8f2; 
+  --tan: #f3e5d4; 
+  --brown: #5a4634; 
+  --dark: #2f2f2f; 
+  --accent: #d6a86a; 
+  --white: #fff; 
+  --heading: 'Cormorant Garamond', Georgia, serif; 
+  --body: 'Poppins', sans-serif; 
+  --shadow: 0 14px 40px rgba(68, 52, 36, .12); 
+  --radius: 1.25rem; 
+}
