@@ -1,0 +1,1 @@
+/* Reserved for the accessible gallery lightbox on gallery.html. */
