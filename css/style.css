@@ -378,6 +378,8 @@ img {
   height: 100%;
   object-fit: cover;
   width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 /* -----------------------------REVIEWS/SOCIALS----------------------------------- */
