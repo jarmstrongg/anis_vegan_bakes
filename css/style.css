@@ -374,6 +374,12 @@ img {
   padding-bottom: 4rem;
 }
 
+.about-portrait img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
 /* -----------------------------REVIEWS/SOCIALS----------------------------------- */
 .quote-card { 
   background: var(--white); 
