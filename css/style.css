@@ -369,6 +369,11 @@ img {
   font-size: .83rem; 
 }
 
+.about-values {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
 /* -----------------------------REVIEWS/SOCIALS----------------------------------- */
 .quote-card { 
   background: var(--white); 
