@@ -17,7 +17,7 @@
 <body>
 
 <!------------------------------------------------------------ NAVIGATION ----------------------------------------------------------------------->
-  <div class="announcement-bar"><i class="bi bi-calendar-heart" aria-hidden="true"></i>Weekly preorder pickup at The Corner Bakery</div>
+  <div class="announcement-bar"><i class="bi bi-calendar-heart" aria-hidden="true"></i>Weekly preorder pickup at Oakhurst Park</div>
   <a class="skip-link" href="#main-content">Skip to order form</a>
 
   <header class="site-header">
@@ -70,7 +70,7 @@
       <div class="container reveal">
         <p class="eyebrow">Freshly baked for you</p>
         <h1 id="order-title">Place Your <em>Preorder.</em></h1>
-        <p class="lead">Choose your favorite bakes, a pickup date and time, and we'll prepare your order fresh for collection at The Corner Bakery.</p>
+        <p class="lead">Choose your favorite bakes, a pickup date and time, and we'll prepare your order fresh for collection at Oakhurst Park.</p>
       </div>
     </section>
 
@@ -143,10 +143,11 @@
                   <article class="order-product" data-product-id="chocolate-chip-cookies" data-product-name="Chocolate Chip Cookies" data-price="4.00">
                     <img src="images/products/cookies1.jpg" alt="Chocolate chip cookies">
                     <div>
-                      <span class="menu-product-category">Cookies</span>
-                      <h3>Chocolate Chip Cookies</h3>
-                      <p>Soft-centred vegan cookies with rich chocolate.</p>
-                      <span class="product-price">$4.00</span>
+                      <span class="menu-product-category">Bread</span>
+                      <h3>Artisan Wreath Bread</h3>
+                      <p>Ingredients: flour, soy milk, brown sugar, sugar, non-dairy butter, powdered sugar, vegan white chocolate, dried cranberries, pistachios,
+                      yest, vanilla extract, lemon zest</p>
+                      <span class="product-price">$12.00 per loaf</span>
                     </div>
                     
                     <div class="quantity-control" aria-label="Chocolate chip cookie quantity">
@@ -160,9 +161,9 @@
                     <img src="images/products/cookies2.jpg" alt="Blueberry scones">
                     <div>
                       <span class="menu-product-category">Pastries</span>
-                      <h3>Blueberry Scones</h3>
-                      <p>Tender vegan scones with bright blueberries.</p>
-                      <span class="product-price">$5.00</span>
+                      <h3>Classic Cinnamon Rolls</h3>
+                      <p>Ingredients: flour, powdered sugar, sugar, brown sugar, soy milk, non-dairy butter, yeast, cinnamon, vanilla extract, salt</p>
+                      <span class="product-price">$4.00 each</span>
                     </div>
 
                     <div class="quantity-control" aria-label="Blueberry scone quantity">
@@ -175,10 +176,10 @@
                   <article class="order-product" data-product-id="cinnamon-rolls" data-product-name="Cinnamon Rolls" data-price="6.00">
                     <img src="images/products/cranbread2.jpg" alt="Cinnamon rolls">
                     <div>
-                      <span class="menu-product-category">Pastries</span>
-                      <h3>Cinnamon Rolls</h3>
-                      <p>Soft cinnamon swirls with vanilla glaze.</p>
-                      <span class="product-price">$6.00</span>
+                      <span class="menu-product-category">Cookies</span>
+                      <h3>Biscoff Truffles</h3>
+                      <p>Ingredients: Biscoff cookies, vegan white chooclate, dairy-free cream cheese, Biscoff spread</p>
+                      <span class="product-price">3 for $7.00</span>
                     </div>
                     
                     <div class="quantity-control" aria-label="Cinnamon roll quantity">
@@ -191,10 +192,11 @@
                   <article class="order-product" data-product-id="focaccia" data-product-name="Focaccia" data-price="9.00">
                     <img src="images/products/bbread1.jpg" alt="Fresh focaccia">
                     <div>
-                      <span class="menu-product-category">Bread</span>
-                      <h3>Focaccia</h3>
-                      <p>Herb-infused focaccia with olive oil.</p>
-                      <span class="product-price">$9.00</span>
+                      <span class="menu-product-category">Cookies</span>
+                      <h3>S'Mores Cookies</h3>
+                      <p>Ingredients: flour, dairy-free butter, sugar, brown sugar, dairy-free chocolate, graham crackers, vegan marshmallows, soy milk, 
+                        vanilla extract, baking soda</p>
+                      <span class="product-price">2 for $6.00</span>
                     </div>
 
                     <div class="quantity-control" aria-label="Focaccia quantity">
@@ -207,10 +209,28 @@
                   <article class="order-product" data-product-id="seasonal-special" data-product-name="Seasonal Special" data-price="7.00">
                     <img src="images/products/cake1.jpg" alt="Seasonal vegan cake">
                     <div>
-                      <span class="menu-product-category">Seasonal</span>
-                      <h3>Seasonal Special</h3>
-                      <p>A limited bake that changes with the season.</p>
-                      <span class="product-price">$7.00</span>
+                      <span class="menu-product-category">Cookies</span>
+                      <h3>Classic Sugar Cookies</h3>
+                      <p>Ingredients: flour, sugar, non-dairy butter, powdered sugar, almond milk, cornstarch, baking powder, vanilla extract, almond extract, 
+                        salt</p>
+                      <span class="product-price">2 for $5.00</span>
+                    </div>
+
+                    <div class="quantity-control" aria-label="Seasonal special quantity">
+                      <button type="button" data-quantity-action="decrease" aria-label="Decrease seasonal special quantity">−</button>
+                      <input id="qty-seasonal" name="items[seasonal_special][quantity]" value="0" min="0" max="24" inputmode="numeric" data-quantity readonly>
+                      <button type="button" data-quantity-action="increase" aria-label="Increase seasonal special quantity">+</button>
+                    </div>
+                  </article>
+
+                  <article class="order-product" data-product-id="seasonal-special" data-product-name="Seasonal Special" data-price="7.00">
+                    <img src="images/products/cake1.jpg" alt="Seasonal vegan cake">
+                    <div>
+                      <span class="menu-product-category">Cookies</span>
+                      <h3>Classic Sugar Cookies</h3>
+                      <p>Ingredients: flour, sugar, non-dairy butter, powdered sugar, almond milk, cornstarch, baking powder, vanilla extract, almond extract, 
+                        salt</p>
+                      <span class="product-price">2 for $5.00</span>
                     </div>
 
                     <div class="quantity-control" aria-label="Seasonal special quantity">
