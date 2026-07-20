@@ -78,4 +78,26 @@
   .newsletter-form input, .newsletter-form button { 
     width: 100%; 
   } 
-}
+
+  .order-hero { 
+    background: var(--cream); 
+  }
+
+  .order-product { 
+    grid-template-columns: 4.5rem 1fr; 
+  }
+
+  .order-product img { 
+    height: 4.5rem; 
+    width: 4.5rem; 
+  }
+
+  .order-product .quantity-control { 
+    grid-column: 2; 
+    justify-self: start; 
+  }
+
+  .order-summary { 
+    position: static; 
+  }
+} 
