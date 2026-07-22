@@ -1024,3 +1024,22 @@ img {
   border-color: rgba(255,255,255,.25); 
   color: var(--cream); 
 }
+
+.health-notice {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 248, 242, 0.9);
+  font-size: 0.7rem;
+  line-height: 1.55;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+}
+
+.health-notice h3 {
+  color: var(--accent);
+  font-family: var(--body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
