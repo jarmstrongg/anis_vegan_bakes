@@ -18,17 +18,50 @@
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand brand" href="index.html">
-          <img src="images/logo/anis-vegan-bakes-logo.png" alt="Ani's Vegan Bakes" width="1254" height="1254">
-          </a>
-          <div class="ms-auto">
-            <a class="btn btn-accent" href="order.html">Order Online</a>
+
+        <nav class="navbar navbar-expand-lg" aria-label="Primary navigation">
+          <div class="container">
+
+            <a class="navbar-brand brand" href="index.html" aria-label="Ani's Vegan Bakes home">
+            <img src="images/logo/anis-vegan-bakes-logo.png" alt="Ani's Vegan Bakes" width="1254" height="1254">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-list" aria-hidden="true"></i></button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+
+              <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="order.html">Order Online</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="faq.html">FAQ</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+              </ul>
+
+              <a class="btn btn-accent ms-lg-3" href="order.html">Order Online <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i></a>
+
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
     <main id="main-content">
       <section class="page-hero">
         <div class="container">
