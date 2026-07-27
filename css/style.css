@@ -1043,3 +1043,22 @@ img {
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
+
+.order-window-notice {
+  background: var(--tan);
+  border-left: 3px solid var(--accent);
+  color: var(--brown);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1rem;
+}
+
+.order-window-notice strong,
+.order-window-notice span {
+  display: block;
+}
+
+.order-window-notice span {
+  margin-top: 0.2rem;
+}

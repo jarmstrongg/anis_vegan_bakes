@@ -95,6 +95,11 @@
                       <h2 id="customer-title">Your Details</h2>
                     </div>
 
+                    <div class="order-window-notice" role="note">
+                      <strong>Ordering opens every Monday at 9:00 AM and closes Thursday at midnight.</strong>
+                      <span>Pickup is every Sunday from 11:00 AM–6:00 PM at Oakhurst Park, Westminster CO.</span>
+                    </div>
+
                     <div class="row g-3">
 
                       <div class="col-md-6">
@@ -122,18 +127,59 @@
 
                       <div class="col-md-6">
                         <label class="form-label" for="pickup-date">Pickup date *</label>
-                        <input class="form-control" id="pickup-date" name="pickup_date" type="date" required>
+
+                        <select
+                          class="form-select"
+                          id="pickup-date"
+                          name="pickup_date"
+                          required
+                        >
+                          <option value="">Choose a Sunday</option>
+                        </select>
                       </div>
 
                       <div class="col-md-6">
                         <label class="form-label" for="pickup-time">Pickup time *</label>
                         <select class="form-select" id="pickup-time" name="pickup_time" required>
                           <option value="" selected disabled>Select a time</option>
-                          <option>11:00 AM &ndash; 3:00 PM</option>
-                          <option>12:00 PM &ndash; 4:00 PM</option>
-                          <option>1:00 PM &ndash; 5:00 PM</option>
-                          <option>2:00 PM &ndash; 6:00 PM</option></select>
+                          <option>11:00 AM</option>
+                          <option>12:00 PM</option>
+                          <option>1:00 PM</option>
+                          <option>2:00 PM</option>
+                          <option>3:00 PM</option>
+                          <option>4:00 PM</option>
+                          <option>5:00 PM</option>
+                          <option>6:00 PM</option>
+                        </select>
                       </div>
+
+                      <div class="col-12">
+                        <label class="form-label">Payment Preference *</label>
+
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="paymentPreference"
+                            id="payPickup"
+                            value="Pay at Pickup"
+                            required
+                          >
+                          <label class="form-check-label" for="payPickup">Pay at Pickup (Cash or Venmo)</label>
+                        </div>
+
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="paymentPreference"
+                            id="payVenmo"
+                            value="Venmo After Approval"
+                          >
+                          <label class="form-check-label" for="payVenmo">Pay After Approval (Venmo)</label>
+                        </div>
+                      </div>
+
                     </div>
                   </section>
 
