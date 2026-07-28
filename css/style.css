@@ -1112,3 +1112,7 @@ img {
   margin-top: 1.25rem;
   font-weight: 600;
 }
+/* For contact form */
+.hidden {
+  display: none;
+}
