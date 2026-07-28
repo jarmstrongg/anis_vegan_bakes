@@ -100,9 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return amount;
   };
 
-  paymentPreference:
-  document.querySelector('input[name="paymentPreference"]:checked')?.value || ''
-
   const getSelectedItems = () => {
     return products
       .map((product) => {
@@ -227,10 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
         '[name="specialInstructions"]'
       ),
 
-      paymentPreference: getFieldValue(
-        '#payment-preference',
-        '[name="paymentPreference"]'
-      ),
+      paymentPreference:
+        document.querySelector(
+        'input[name="paymentPreference"]:checked'
+        )?.value || '',
     };
 
     const originalButtonText = submitButton
