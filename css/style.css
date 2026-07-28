@@ -1054,6 +1054,7 @@ img {
   padding: 0.85rem 1rem;
 }
 
+/* ---------------------------------Order page notice/form--------------------------------------- */
 .order-window-notice strong,
 .order-window-notice span {
   display: block;
@@ -1061,4 +1062,53 @@ img {
 
 .order-window-notice span {
   margin-top: 0.2rem;
+}
+
+#ordering-status {
+  margin-bottom: 2rem;
+}
+
+.ordering-open,
+.ordering-closed {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.ordering-open {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: #edf7ef;
+  border: 1px solid #b8d9be;
+  color: #285d32;
+}
+
+.ordering-closed {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: 2.5rem 1.5rem;
+  background: #fff8f1;
+  border: 1px solid #e3c6ac;
+}
+
+.ordering-closed h2 {
+  margin: 0 0 1rem;
+}
+
+.ordering-closed p {
+  margin-bottom: 0.75rem;
+}
+
+.ordering-label {
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ordering-thank-you {
+  margin-top: 1.25rem;
+  font-weight: 600;
 }
