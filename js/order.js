@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#preorder-form');
   if (!form) return;
 
-  const WEBHOOK_URL = 'https://ianarmstrong.app.n8n.cloud/webhook-test/bakery-order';
+  const WEBHOOK_URL = 'https://ianarmstrong.app.n8n.cloud/webhook/bakery-order';
 
   const money = new Intl.NumberFormat('en-US', {
     style: 'currency',

@@ -1,3 +1,4 @@
+console.log("ordering-window.js loaded!");
 // =====================================================
 // Ani's Vegan Bakes Ordering Window
 // Open Monday at 9:00 AM through Thursday at 11:59 PM
@@ -80,7 +81,7 @@ function updateOrderingWindow() {
     return;
   }
 
-  const orderingIsOpen = false;
+  const orderingIsOpen = isOrderingOpen();
 
   if (orderingIsOpen) {
     orderForm.hidden = false;
