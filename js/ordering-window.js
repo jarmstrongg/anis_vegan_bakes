@@ -80,7 +80,7 @@ function updateOrderingWindow() {
     return;
   }
 
-  const orderingIsOpen = isOrderingOpen();
+  const orderingIsOpen = false;
 
   if (orderingIsOpen) {
     orderForm.hidden = false;
