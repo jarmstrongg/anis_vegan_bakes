@@ -3,7 +3,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const announcements = document.querySelectorAll("[data-market-announcement]");
   const dismissButton = document.querySelector("[data-market-dismiss]");
-  const storageKey = "anisMarketAnnouncementDismissed";
   const eventEnd = new Date("2026-08-16T18:00:00-06:00");
 
   const hideAnnouncements = () => {
@@ -12,14 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  if (new Date() > eventEnd || localStorage.getItem(storageKey) === "true") {
+  if (new Date() > eventEnd > eventEnd) {
     hideAnnouncements();
     return;
   }
 
   if (dismissButton) {
     dismissButton.addEventListener("click", () => {
-      localStorage.setItem(storageKey, "true");
       hideAnnouncements();
     });
   }
