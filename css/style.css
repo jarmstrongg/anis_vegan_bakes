@@ -1117,7 +1117,7 @@ img {
   display: none;
 }
 
-/* Temporary farmers market announcement */
+/* --------------Temporary farmers market announcement ------------- */
 
 .market-announcement {
   background: var(--cream);
@@ -1135,6 +1135,8 @@ img {
   justify-content: space-between;
   padding: 1.35rem 1.5rem;
   position: relative;
+  max-width: 1050px;
+  margin: 0 auto;
 }
 
 .market-announcement__content {
