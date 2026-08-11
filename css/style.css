@@ -1215,12 +1215,13 @@ img {
 
 .market-order-notice {
   align-items: center;
-  background: var(--tan);
+  /* background: var(--tan); */
+  background: #fdf0be4f;
   border-left: 4px solid var(--accent);
   display: flex;
   gap: 1.5rem;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 0.1rem;
   padding: 1.25rem 1.5rem;
 }
 
