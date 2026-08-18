@@ -718,8 +718,68 @@ img {
   padding: .65rem .8rem; 
 }
 
+/* -----------   How it works and where to find us section ---------------  */
+
 .how-it-works { 
   background: var(--cream); 
+}
+
+.section.preorder-process {
+  padding: 4.25rem 0;
+}
+
+.availability-section {
+  background: #e4c9aa;
+}
+
+.section.availability-section {
+  padding-bottom: 3.5rem;
+  padding-top: 3.5rem;
+}
+
+.availability-card {
+  background: var(--white);
+  box-shadow: 0 10px 26px rgba(68, 52, 36, 0.1);
+  height: 100%;
+  padding: clamp(1.4rem, 3vw, 2rem);
+}
+
+.availability-card--market {
+  background: #f7eadb;
+}
+
+.availability-card__icon {
+  height: 2.85rem;
+  margin-bottom: 1rem;
+  width: 2.85rem;
+}
+
+.availability-card--market .availability-card__icon {
+  background: var(--accent);
+  color: var(--green);
+}
+
+.availability-card h3 {
+  font-size: clamp(1.8rem, 2.5vw, 2.25rem);
+  margin-bottom: 0.8rem;
+}
+
+.availability-card__details {
+  font-size: 0.78rem;
+  margin-bottom: 1.2rem;
+}
+
+.availability-card__details li {
+  padding: 0.5rem 0;
+}
+
+.availability-card__details li:first-child {
+  padding-top: 0;
+}
+
+.availability-card__note {
+  font-size: 0.76rem;
+  margin-bottom: 1rem;
 }
 
 .process-step { 
