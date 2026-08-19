@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Browse recent bakes, seasonal favorites, and bakery moments from Ani's Vegan Bakes."
+    >
+    <meta name="theme-color" content="#315236">
+    <title>Gallery | Ani's Vegan Bakes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Navbar -->
+    <header class="site-header">
+      <nav class="navbar navbar-expand-lg" aria-label="Primary navigation">
+        <div class="container">
+          <a
+            class="navbar-brand brand"
+            href="index.html"
+            aria-label="Ani's Vegan Bakes home"
+          >
+            <img
+              src="images/logo/anis-vegan-bakes-logo.png"
+              alt="Ani's Vegan Bakes"
+              width="1254"
+              height="1254"
+            >
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="bi bi-list" aria-hidden="true"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="order.html">Order Online</a></li>
+              <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="gallery.html">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <a class="btn btn-accent ms-lg-3" href="order.html">
+              Order Online
+              <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <!-- Compact gallery hero -->
+      <section class="gallery-hero" aria-labelledby="gallery-title">
+        <div class="container text-center reveal">
+          <p class="eyebrow">A peek from our kitchen</p>
+          <h1 id="gallery-title">Fresh From the <em>Oven.</em></h1>
+          <p>
+            Take a look at recent bakes, seasonal favorites, and moments from
+            Ani's Vegan Bakes. Click on the picture for a better view!
+          </p>
+        </div>
+      </section>
+
+      <!-- Filters and gallery -->
+      <section class="gallery-section">
+        <div class="container">
+          <div
+            class="gallery-filters reveal"
+            role="group"
+            aria-label="Filter gallery images"
+          >
+            <button class="gallery-filter is-active" type="button" data-gallery-filter="all" aria-pressed="true">All</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="current" aria-pressed="false">Currently Available</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="market" aria-pressed="false">Farmers Market</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="past-favorites" aria-pressed="false">Past Favorites</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="behind-scenes" aria-pressed="false">Behind the Scenes</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="seasonal" aria-pressed="false">Seasonal</button>
+          </div>
+
+          <div class="gallery-grid mt-4">
+            <article class="gallery-item reveal" data-category="current seasonal">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-01.jpg" alt="Fresh strawberry cinnamon rolls">
+                  <span class="product-badge badge-favorite">Customer Favorite</span>
+                </div>
+                <span class="gallery-caption">Fresh strawberry cinnamon rolls</span>
+              </button>
+            </article>
+
+            <article class="gallery-item gallery-item--tall reveal" data-category="seasonal">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-02.jpg" alt="Strawberry cinnamon rolls">
+                  <span class="product-badge badge-seasonal">Seasonal Favorite</span>
+                </div>
+                <span class="gallery-caption">Strawberry cinnamon rolls</span>
+              </button>
+            </article>
+
+            <article class="gallery-item reveal" data-category="past-favorites">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-03.jpg" alt="Vegan Cake">
+                  <!-- <span class="product-badge badge-seasonal">Seasonal Favorite</span> -->
+                </div>
+                <span class="gallery-caption">Vegan cake</span>
+              </button>
+            </article>
+
+            <article class="gallery-item reveal" data-category="current">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-04.jpg" alt="Cookie assortment">
+                  <span class="product-badge badge-available">Available now</span>
+                </div>
+                <span class="gallery-caption">Cookie varieties</span>
+              </button>
+            </article>
+
+            <article class="gallery-item gallery-item--wide reveal" data-category="behind-scenes">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-05.jpg" alt="Bakes ready for delivery">
+                  <!-- <span class="product-badge badge-seasonal">Seasonal Favorite</span> -->
+                </div>
+                <span class="gallery-caption">Delivery Prep</span>
+              </button>
+            </article>
+
+            <article class="gallery-item reveal" data-category="past-favorites">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-06.jpg" alt="Chocolate chip bread">
+                  <span class="product-badge badge-market">Past favorite</span>
+                </div>
+                <span class="gallery-caption">Chocolate chip bread</span>
+              </button>
+            </article>
+
+            <article class="gallery-item reveal" data-category="current">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-07.jpg" alt="Cranberry Pistachio Bread">
+                  <span class="product-badge badge-available">Available Now</span>
+                </div>
+                <span class="gallery-caption">Cranberry/pistachio/white chocolate bread</span>
+              </button>
+            </article>
+
+            <article class="gallery-item reveal" data-category="current">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-08.jpg" alt="Biscoff Cake Truffles">
+                  <span class="product-badge badge-available">Available Now</span>
+                </div>
+                <span class="gallery-caption">Biscoff Cake Truffles</span>
+              </button>
+            </article>
+
+            <article class="gallery-item gallery-item--tall reveal" data-category="market">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-09.jpg" alt="Decorating a vegan baked treat">
+                  <span class="product-badge badge-market">Feral Woman Market</span>
+                </div>
+                <span class="gallery-caption">Bakes on display!</span>
+              </button>
+            </article>
+
+            <article class="gallery-item reveal" data-category="market">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-10.jpg" alt="Boxed truffles at the market">
+                  <span class="product-badge badge-market">Feral Woman Market</span>
+                </div>
+                <span class="gallery-caption">Biscoff Cake Truffles packaged and ready to go!</span>
+              </button>
+            </article>
+
+            <article class="gallery-item reveal" data-category="current">
+              <button class="gallery-card" type="button">
+                <div class="gallery-image-wrap">
+                  <img src="images/gallery/gallery-11.jpg" alt="Vegan Gluten Free Chocolate Chip Cookie">
+                  <span class="product-badge badge-seasonal">Vegan + Gluten-Free</span>
+                </div>
+                <span class="gallery-caption">V/GF Chocolate Chip Oatmeal Cookie</span>
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox modal -->
+    <div
+      class="modal fade"
+      id="galleryLightbox"
+      tabindex="-1"
+      aria-labelledby="galleryLightboxCaption"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content gallery-modal">
+          <div class="modal-header border-0">
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close image"></button>
+          </div>
+
+          <div class="modal-body pt-0">
+            <img id="galleryLightboxImage" src="" alt="">
+            <p id="galleryLightboxCaption" class="gallery-modal__caption"></p>
+          </div>
+
+          <div class="modal-footer border-0 justify-content-between">
+            <button class="btn btn-outline-primary" id="galleryPrevious" type="button">
+              <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
+              Previous
+            </button>
+
+            <button class="btn btn-outline-primary" id="galleryNext" type="button">
+              Next
+              <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row g-5 pb-5">
+
+          <div class="col-lg-4">
+            <a class="brand footer-brand" href="index.html">
+            <img src="images/logo/anis-vegan-bakes-logo.png" alt="Ani's Vegan Bakes" width="1254" height="1254">
+            </a>
+            <p class="mt-3 mb-0">Small-batch vegan bakes, made fresh for your weekly pickup.</p>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h2 class="footer-title">Order</h2>
+
+            <ul class="footer-links">
+              <li>
+                <a href="order.html">Order online</a>
+              </li>
+
+              <li>
+                <a href="menu.html">This week's menu</a>
+              </li>
+
+              <li>
+                <a href="locations.html">Pickup details</a>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h2 class="footer-title">Learn</h2>
+
+            <ul class="footer-links">
+              <li>
+                <a href="about.html">About Ani</a>
+              </li>
+
+              <li>
+                <a href="faq.html">FAQ</a>
+              </li>
+
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="col-lg-4">
+            <h2 class="footer-title">Stay connected</h2>
+            <p>Follow along for the latest weekly menu.</p>
+
+            <div class="social-links">
+              <a href="https://www.instagram.com/anisveganbakes/" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+              <a href="https://www.facebook.com/people/Anis-Vegan-Bakes/61592842460090/" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="footer-bottom d-flex flex-column flex-sm-row justify-content-between gap-2">
+          <small>&copy; <span data-current-year>
+          </span> Ani's Vegan Bakes.</small>
+          <small>Made with plants &amp; plenty of love.</small>
+        </div>
+
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/gallery.js"></script>
+  </body>
+</html>
