@@ -224,10 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '[name="specialInstructions"]'
       ),
 
-      paymentPreference:
-        document.querySelector(
-        'input[name="paymentPreference"]:checked'
-        )?.value || '',
+      paymentPreference: 'Pay at Pickup',
     };
 
     const originalButtonText = submitButton
