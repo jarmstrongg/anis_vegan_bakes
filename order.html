@@ -20,7 +20,7 @@
   <body>
 
 <!----------------------------------------------------------------------- NAV ---------------------------------------------------------------------------------------->
-    <div class="announcement-bar"><i class="bi bi-calendar-heart" aria-hidden="true"></i>Weekly preorder pickup at Oakhurst Park, Westminster</div>
+    <div class="announcement-bar"><i class="bi bi-calendar-heart" aria-hidden="true"></i>Weekly preorders and local farmers markets</div>
     <a class="skip-link" href="#main-content">Skip to order form</a>
 
     <header class="site-header">
@@ -80,7 +80,7 @@
       </section>
 
       <!-- TEMP MARKET NOTICE -->
-      <aside class="market-order-notice" data-market-announcement aria-labelledby="market-order-title">
+      <!-- <aside class="market-order-notice" data-market-announcement aria-labelledby="market-order-title">
         <div>
           <p class="market-order-notice__eyebrow">
             <i class="bi bi-calendar-heart" aria-hidden="true"></i>
@@ -101,12 +101,41 @@
           </p>
 
         </div>
-      </aside>
+      </aside> -->
 
     <!-- preorder form front end only-->
       <section class="order-page">
 
         <div class="container">
+
+          <!-- Weekly market availability notice -->
+          <aside class="market-order-notice" aria-labelledby="market-order-title">
+            <div>
+              <p class="market-order-notice__eyebrow">
+                <i class="bi bi-basket2" aria-hidden="true"></i>
+                Sunday availability
+              </p>
+
+              <h2 id="market-order-title">Looking for something this Sunday or missed the ordering window?</h2>
+
+              <p class="mb-0">
+                A limited selection of Ani's Vegan Bakes is available every Sunday at the
+                Feral Woman Market in Arvada while supplies last. Market inventory is
+                separate from online preorders; preorder pickup remains at Oakhurst Park.
+              </p>
+            </div>
+
+            <a
+              class="text-link market-order-notice__link"
+              href="https://www.google.com/maps/search/?api=1&query=9161%20West%2066th%20Ave%2C%20Arvada%2C%20CO"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Market Directions
+              <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </aside>
+
           <div id="ordering-status" aria-live="polite"></div>
           <form id="preorder-form" novalidate>
             <div class="row g-4 g-lg-5">

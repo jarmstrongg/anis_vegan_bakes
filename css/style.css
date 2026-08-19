@@ -1371,3 +1371,52 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
+/* Secondary weekly market notice on the order page */
+
+.market-order-notice {
+  align-items: center;
+  background: var(--tan);
+  border-left: 4px solid var(--accent);
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 1.15rem 1.35rem;
+}
+
+.market-order-notice__eyebrow {
+  color: var(--green-soft);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.market-order-notice__eyebrow i {
+  color: var(--accent);
+  margin-right: 0.3rem;
+}
+
+.market-order-notice h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.45rem;
+}
+
+.market-order-notice p:not(.market-order-notice__eyebrow) {
+  color: var(--brown);
+  font-size: 0.82rem;
+}
+
+.market-order-notice__link {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 767.98px) {
+  .market-order-notice {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
