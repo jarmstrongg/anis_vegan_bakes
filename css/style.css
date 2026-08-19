@@ -1179,7 +1179,7 @@ img {
 
 /* --------------Temporary farmers market announcement ------------- */
 
-.market-announcement {
+/* .market-announcement {
   background: var(--cream);
   padding: 1.25rem 0 0;
 }
@@ -1269,7 +1269,7 @@ img {
 .market-announcement__dismiss:hover,
 .market-announcement__dismiss:focus-visible {
   background: rgba(49, 82, 54, 0.1);
-}
+} */
 
 /* Order-page version */
 
@@ -1379,7 +1379,9 @@ img {
 .market-order-notice {
   align-items: center;
   background: var(--tan);
+  border: 1px solid rgba(90, 70, 52, 0.12);
   border-left: 4px solid var(--accent);
+  box-shadow: 0 6px 18px rgba(68, 52, 36, 0.06);
   display: flex;
   gap: 1.5rem;
   justify-content: space-between;
