@@ -295,6 +295,8 @@ img {
   text-transform: uppercase; 
 }
 
+
+
 /* -----------------------------ABOUT/LOCATIONS----------------------------------- */
 .purpose-image { 
   position: relative; 
@@ -1762,4 +1764,21 @@ img {
 .menu-preview-card__image > .product-badge {
   left: 0.7rem;
   top: 0.7rem;
+}
+
+/* Homepage featured-menu card layout */
+.index-weekly-menu .menu-product-footer {
+  gap: 0.5rem;
+}
+
+.index-weekly-menu .product-price {
+  font-size: 1.35rem;
+  white-space: nowrap;
+}
+
+.index-weekly-menu .btn-order-small {
+  flex-shrink: 0;
+  font-size: 0.57rem;
+  padding: 0.5rem 0.65rem;
+  white-space: nowrap;
 }
