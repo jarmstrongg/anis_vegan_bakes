@@ -1783,7 +1783,7 @@ img {
   white-space: nowrap;
 }
 
-/* Menu page: ingredient graphic buttons and modal */
+/* Menu page: ingredient graphic buttons and modal -----------------------------------------------------------*/
 .menu-ingredients-button {
   background: transparent;
   border: 0;
@@ -1812,34 +1812,54 @@ img {
   margin-right: 0.25rem;
 }
 
-.menu-ingredients-modal {
-  background: var(--green-soft);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(50px);
-  border: 0;
+/* Ingredient modal: image-first presentation */
+.modal-content.menu-ingredients-modal {
+  background-color: transparent !important;
+  border: 0 !important;
   border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.menu-ingredients-modal .modal-header {
-  background: var(--cream);
-  border-bottom: 1px solid rgba(90, 70, 52, 0.12);
-  padding: 1rem 1.25rem;
-}
-
-.menu-ingredients-modal .modal-title {
-  color: var(--green);
-  font-size: 2rem;
+  box-shadow: none !important;
+  overflow: visible;
 }
 
 .menu-ingredients-modal .modal-body {
-  padding: 1.25rem;
+  background-color: transparent !important;
+  padding: 0;
+  position: relative;
   text-align: center;
 }
 
 .menu-ingredients-modal img {
+  background: transparent;
+  border-radius: var(--radius);
+  /* box-shadow: 0 18px 45px rgba(47, 47, 47, 0.28); */
+  display: block;
   height: auto;
-  max-height: 70vh;
+  margin: 0 auto;
+  max-height: 82vh;
   max-width: 100%;
   width: auto;
+}
+
+.menu-ingredients-modal__title {
+  background: rgba(255, 248, 242, 0.88);
+  border-radius: 99rem;
+  color: var(--green);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  left: 1rem;
+  margin: 0;
+  padding: 0.45rem 0.9rem;
+  position: absolute;
+  top: 1rem;
+  z-index: 1;
+}
+
+.menu-ingredients-modal__close {
+  background-color: rgba(255, 248, 242, 0.9);
+  border-radius: 50%;
+  opacity: 1;
+  padding: 0.65rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 1;
 }
