@@ -1782,3 +1782,64 @@ img {
   padding: 0.5rem 0.65rem;
   white-space: nowrap;
 }
+
+/* Menu page: ingredient graphic buttons and modal */
+.menu-ingredients-button {
+  background: transparent;
+  border: 0;
+  color: var(--green);
+  font-family: var(--body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  padding: 0;
+  text-align: left;
+}
+
+.menu-ingredients-button:hover,
+.menu-ingredients-button:focus-visible {
+  color: var(--brown);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.menu-ingredients-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.25rem;
+}
+
+.menu-ingredients-button i {
+  margin-right: 0.25rem;
+}
+
+.menu-ingredients-modal {
+  background: var(--green-soft);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(50px);
+  border: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.menu-ingredients-modal .modal-header {
+  background: var(--cream);
+  border-bottom: 1px solid rgba(90, 70, 52, 0.12);
+  padding: 1rem 1.25rem;
+}
+
+.menu-ingredients-modal .modal-title {
+  color: var(--green);
+  font-size: 2rem;
+}
+
+.menu-ingredients-modal .modal-body {
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.menu-ingredients-modal img {
+  height: auto;
+  max-height: 70vh;
+  max-width: 100%;
+  width: auto;
+}
