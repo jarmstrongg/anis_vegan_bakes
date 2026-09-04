@@ -1845,11 +1845,11 @@ img {
   border-radius: 99rem;
   color: var(--green);
   font-size: clamp(1.35rem, 3vw, 2rem);
-  left: 1rem;
+  left: .45rem;
   margin: 0;
-  padding: 0.45rem 0.9rem;
+  padding: .20rem .9rem;
   position: absolute;
-  top: 1rem;
+  top: .45rem;
   z-index: 1;
 }
 
@@ -1859,7 +1859,7 @@ img {
   opacity: 1;
   padding: 0.65rem;
   position: absolute;
-  right: 1rem;
-  top: 1rem;
+  right: .45rem;
+  top: .45rem;
   z-index: 1;
 }
