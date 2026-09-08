@@ -731,7 +731,40 @@ img {
 }
 
 .availability-section {
-  background: #e4c9aa;
+  background: #f7ddbf;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.availability-section__photos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  inset: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.availability-section__photos img {
+  filter: saturate(0.65);
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  width: 100%;
+}
+
+.availability-section::before {
+  background: rgba(251, 232, 210, 0.72);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.availability-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 .section.availability-section {
@@ -747,7 +780,7 @@ img {
 }
 
 .availability-card--market {
-  background: #f7eadb;
+  background: var(--white);
 }
 
 .availability-card__icon {
@@ -1998,4 +2031,16 @@ img {
 
 .home-menu-cta {
   margin-top: 3rem;
+}
+
+/* Rule for availability section on index */
+
+@media (max-width: 575.98px) {
+  .availability-section__photos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .availability-section__photos img:nth-child(n + 7) {
+    display: none;
+  }
 }
