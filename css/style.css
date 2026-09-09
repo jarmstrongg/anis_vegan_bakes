@@ -11,7 +11,7 @@ body {
   line-height: 1.75; 
 } 
 
-h1,h2,h3 { 
+h1,h2,h3,h4,h5 { 
   color: var(--green); 
   font-family: var(--heading); 
   font-weight: 600; 
@@ -30,6 +30,14 @@ h2 {
 
 h3 { 
   font-size: 2rem; 
+}
+
+h4 { 
+  font-size: 1.9rem; 
+}
+
+h5 { 
+  font-size: 1rem; 
 } 
 
 h1 em,h2 em { 
@@ -780,6 +788,21 @@ img {
 }
 
 .availability-card--market {
+  position: relative;
+}
+
+.availability-card__logo {
+  height: auto;
+  max-height: 2.75rem;
+  max-width: 5.5rem;
+  object-fit: contain;
+  position: absolute;
+  right: clamp(1.4rem, 3vw, 2rem);
+  top: clamp(1.4rem, 3vw, 2rem);
+  width: auto;
+}
+
+.availability-card--market {
   background: var(--white);
 }
 
@@ -1214,9 +1237,9 @@ img {
 
 /* --------------Temporary farmers market announcement ------------- */
 
-/* .market-announcement {
+.market-announcement {
   background: var(--cream);
-  padding: 1.25rem 0 0;
+  padding: 1.25rem 0 1.25rem;
 }
 
 .market-announcement__card {
@@ -1228,9 +1251,9 @@ img {
   display: flex;
   gap: 1.5rem;
   justify-content: space-between;
-  padding: 1.35rem 1.5rem;
+  padding: 1.2rem 1.5rem;
   position: relative;
-  max-width: 1050px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -1304,7 +1327,7 @@ img {
 .market-announcement__dismiss:hover,
 .market-announcement__dismiss:focus-visible {
   background: rgba(49, 82, 54, 0.1);
-} */
+}
 
 /* Order-page version */
 
