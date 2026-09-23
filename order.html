@@ -283,7 +283,7 @@
                     </article> -->
 
                     <article class="order-product" data-product-id="orange-cardamom-cinnamon-roll" data-product-name="Orange Cardamom Cinnamon Roll" data-price="5.00">
-                      <!-- <span class="product-badge badge-available">Summer Special</span> -->
+                      <span class="product-badge badge-available">Fall Special</span>
                       <img src="images/products/OCRoll.jpg" alt="Orange Cardamom Cinammon Roll">
 
                       <div>
@@ -301,7 +301,7 @@
                     </article>
 
                     <article class="order-product" data-product-id="chai-cinnamon-roll" data-product-name="Chai Cinnamon Roll" data-price="5.00">
-                      <!-- <span class="product-badge badge-available">Summer Special</span> -->
+                      <span class="product-badge badge-available">Fall Special</span>
                       <img src="images/products/ChaiRoll1.jpg" alt="Chai Cinammon Roll">
 
                       <div>
@@ -407,6 +407,7 @@
 
                   </section>
 
+<!-- ---------------------------------------------BATCH ORDERS-------------------------------------------------------------- -->
                   <section class="form-section" aria-labelledby="products-title">
 
                     <div class="form-section-title">
@@ -416,7 +417,7 @@
 
                     <p class="section-copy"><strong>*These are batch order prices*</strong> Set a quantity for anything you'd like to add. Prices are placeholders and ready for your finalized menu.</p>
 
-                    <article class="order-product" data-product-id="Energy Bar" data-product-name="Superfood Energy Bar (Batch)" data-price="45.00">
+                    <article class="order-product" data-product-id="Energy Bar Batch" data-product-name="Superfood Energy Bar (Batch)" data-price="45.00">
                       <img src="images/products/healthbar2.jpg" alt="Gluten Free Superfood Energy Bar">
 
                       <div>
@@ -435,7 +436,7 @@
                       </div>
                     </article>
 
-                    <article class="order-product" data-product-id="biscoff_truffle" data-product-name="Biscoff Truffle (Batch)" data-price="60.00">
+                    <article class="order-product" data-product-id="biscoff_truffle_batch" data-product-name="Biscoff Truffle (Batch)" data-price="60.00">
                       <img src="images/products/biscoff2.jpg" alt="Biscoff Cake Truffle">
 
                       <div>
@@ -445,11 +446,47 @@
                         <span class="product-price">$60.00/batch</span>
                       </div>
 
-                      <div class="quantity-control" aria-label="biscoff cake truffle quantity">
+                      <div class="quantity-control" aria-label="biscoff cake truffle batch quantity">
 
-                        <button type="button" data-quantity-action="decrease" aria-label="Decrease biscoff cake truffle quantity">&minus;</button>
-                        <input id="qty-bread" name="items[biscoff_cake_truffle][quantity]" value="0" min="0" max="24" inputmode="numeric" data-quantity readonly>
-                        <button type="button" data-quantity-action="increase" aria-label="Increase biscoff cake truffle quantity">+</button>
+                        <button type="button" data-quantity-action="decrease" aria-label="Decrease biscoff cake truffle batch quantity">&minus;</button>
+                        <input id="qty-bread" name="items[biscoff_cake_truffle_batch][quantity]" value="0" min="0" max="24" inputmode="numeric" data-quantity readonly>
+                        <button type="button" data-quantity-action="increase" aria-label="Increase biscoff cake truffle batch quantity">+</button>
+                      </div>
+                    </article>
+
+                    <article class="order-product" data-product-id="orange-cardamom-cinnamon-roll-batch" data-product-name="Orange Cardamom Cinnamon Roll (Batch)" data-price="55.00">
+                      <!-- <span class="product-badge badge-available">Summer Special</span> -->
+                      <img src="images/products/OCRoll.jpg" alt="Orange Cardamom Cinammon Roll">
+
+                      <div>
+                        <span class="menu-product-category">Fall Special</span>
+                        <h3>Orange Cardamom Cinnamon Roll</h3>
+                        <p><strong>12 per batch.</strong> A limited bake that changes with the season. A Fall twist on the classic cinnamon roll, infused with fresh orange and cardamom spice filling and glaze.</p>
+                        <span class="product-price">$55.00/batch</span>
+                      </div>
+
+                      <div class="quantity-control" aria-label="Orange Cardamom Cinnamon Roll Batch quantity">
+                        <button type="button" data-quantity-action="decrease" aria-label="Decrease orange cardamom cinnamon roll batch quantity">&minus;</button>
+                        <input id="qty-scones" name="items[orange-cardamom-cinnamon-roll-batch][quantity]" value="0" min="0" max="24" inputmode="numeric" data-quantity readonly>
+                        <button type="button" data-quantity-action="increase" aria-label="Increase orange cardamom cinnamon roll batch quantity">+</button>
+                      </div>
+                    </article>
+
+                    <article class="order-product" data-product-id="chai-cinnamon-roll-batch" data-product-name="Chai Cinnamon Roll (Batch)" data-price="55.00">
+                      <!-- <span class="product-badge badge-available">Summer Special</span> -->
+                      <img src="images/products/ChaiRoll1.jpg" alt="Chai Cinammon Roll">
+
+                      <div>
+                        <span class="menu-product-category">Fall Special</span>
+                        <h3>Chai Cinnamon Roll</h3>
+                        <p><strong>12 per batch.</strong>A limited bake that changes with the season. A Warm and perfectly spiced cinnamon roll ready for the Fall season!</p>
+                        <span class="product-price">$55.00/batch</span>
+                      </div>
+
+                      <div class="quantity-control" aria-label="Chai Cinnamon Roll Batch quantity">
+                        <button type="button" data-quantity-action="decrease" aria-label="Decrease chai cinnamon roll batch quantity">&minus;</button>
+                        <input id="qty-scones" name="items[chai-cinnamon-roll-batch][quantity]" value="0" min="0" max="24" inputmode="numeric" data-quantity readonly>
+                        <button type="button" data-quantity-action="increase" aria-label="Increase chai cinnamon roll batch quantity">+</button>
                       </div>
                     </article>
 
