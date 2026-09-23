@@ -195,6 +195,11 @@ document.addEventListener('DOMContentLoaded', () => {
         '[name="phone"]'
       ),
 
+      pickupLocation: getFieldValue(
+        '#pickup-location',
+        '[name="pickup_location"]'
+      ),
+
       pickupDate: getFieldValue(
         '#pickup-date',
         '[name="pickup_date"]'
