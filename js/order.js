@@ -156,21 +156,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     pickupLocationInfo.innerHTML = `
-      <strong>${pickupLocation.value}</strong><br>
-
-      <i class="bi bi-clock" aria-hidden="true"></i>
-      ${details.hours}<br>
-
-      <i class="bi bi-geo-alt" aria-hidden="true"></i>
-      ${details.address}<br>
-
-      <a
-        href="${details.mapUrl}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Open in Google Maps
-      </a>
+        <i class="bi bi-clock"></i>
+        <strong>${details.hours}</strong>
+        &nbsp;•&nbsp;
+        <a
+          href="${details.mapUrl}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bi bi-geo-alt"></i>
+          Directions
+        </a>
     `;
   };
 
@@ -384,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ).show();
 
       form.reset();
-      
+
       updatePickupTimes();
       updatePickupLocationInfo();
 

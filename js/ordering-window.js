@@ -93,7 +93,7 @@ function updateOrderingWindow() {
     status.innerHTML = `
       <div class="ordering-open" role="status">
         <strong>Weekly ordering is open.</strong>
-        <span>Orders close Thursday at midnight Mountain Time.</span>
+        <span>Orders close Thursday at midnight MST.</span>
       </div>
     `;
 
