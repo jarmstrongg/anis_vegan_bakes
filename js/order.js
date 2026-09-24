@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const pickupLocation = document.querySelector('#pickup-location');
   const pickupTime = document.querySelector('#pickup-time');
+  const pickupLocationInfo = document.querySelector('#pickup-location-info');
 
   const populatePickupSundays = () => {
   const numberOfSundays = 8;
@@ -108,6 +109,26 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   };
 
+  const pickupLocationDetails = {
+    "Oakhurst Park, Westminster": {
+      hours: "Sunday, 11:00 AM-6:00 PM",
+      address: "9311 Lark Bunting Dr, Westminster, CO 80021",
+      mapUrl: "https://maps.app.goo.gl/sDKtHfLt8nXAdV116"
+    },
+
+    "Arvada Farmers Market": {
+      hours: "Sunday, 9:00 AM-1:30 PM",
+      address: "5702 Olde Wadsworth Blvd. Arvada, CO 80002",
+      mapUrl: "https://maps.app.goo.gl/JL9bWp95DzeBpzso6"
+    },
+
+    "Feral Woman Market": {
+      hours: "Sunday, 10:00 AM-6:00 PM",
+      address: "9161 W 66th Ave | Arvada, CO",
+      mapUrl: "https://maps.app.goo.gl/e385v1Qn1vcE5T9e8"
+    }
+  };
+
   const updatePickupTimes = () => {
     const availableTimes =
       pickupTimesByLocation[pickupLocation.value] || [];
@@ -125,9 +146,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  pickupLocation.addEventListener('change', updatePickupTimes);
+  const updatePickupLocationInfo = () => {
+    const details =
+      pickupLocationDetails[pickupLocation.value];
+
+    if (!details) {
+      pickupLocationInfo.innerHTML = '';
+      return;
+    }
+
+    pickupLocationInfo.innerHTML = `
+      <strong>${pickupLocation.value}</strong><br>
+
+      <i class="bi bi-clock" aria-hidden="true"></i>
+      ${details.hours}<br>
+
+      <i class="bi bi-geo-alt" aria-hidden="true"></i>
+      ${details.address}<br>
+
+      <a
+        href="${details.mapUrl}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open in Google Maps
+      </a>
+    `;
+  };
+
+  pickupLocation.addEventListener('change', () => {
+    updatePickupTimes();
+    updatePickupLocationInfo();
+  });
 
   updatePickupTimes();
+  updatePickupLocationInfo();
+
   const submitButton = form.querySelector('button[type="submit"]');
 
 
@@ -330,6 +384,9 @@ document.addEventListener('DOMContentLoaded', () => {
       ).show();
 
       form.reset();
+      
+      updatePickupTimes();
+      updatePickupLocationInfo();
 
       products.forEach((product) => {
         product.querySelector('[data-quantity]').value = 0;
