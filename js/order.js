@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const total = document.querySelector('#order-total');
   const error = document.querySelector('#order-error');
   const date = document.querySelector('#pickup-date');
+
+  const pickupLocation = document.querySelector('#pickup-location');
+  const pickupTime = document.querySelector('#pickup-time');
+
   const populatePickupSundays = () => {
   const numberOfSundays = 8;
   const today = new Date();
@@ -66,6 +70,64 @@ document.addEventListener('DOMContentLoaded', () => {
 };
 
   populatePickupSundays();
+  const pickupTimesByLocation = {
+    "Oakhurst Park, Westminster": [
+      "11:00 AM",
+      "12:00 PM",
+      "1:00 PM",
+      "2:00 PM",
+      "3:00 PM",
+      "4:00 PM",
+      "5:00 PM",
+      "6:00 PM"
+    ],
+
+    "Arvada Farmers Market": [
+      "9:00 AM",
+      "9:30 AM",
+      "10:00 AM",
+      "10:30 AM",
+      "11:00 AM",
+      "11:30 AM",
+      "12:00 PM",
+      "12:30 PM",
+      "1:00 PM",
+      "1:30 PM"
+    ],
+
+    "Feral Woman Market": [
+      "10:00 AM",
+      "11:00 AM",
+      "12:00 PM",
+      "1:00 PM",
+      "2:00 PM",
+      "3:00 PM",
+      "4:00 PM",
+      "5:00 PM",
+      "6:00 PM"
+    ]
+  };
+
+  const updatePickupTimes = () => {
+    const availableTimes =
+      pickupTimesByLocation[pickupLocation.value] || [];
+
+    pickupTime.innerHTML =
+      '<option value="" selected disabled>Select a time</option>';
+
+    availableTimes.forEach((time) => {
+      const option = document.createElement('option');
+
+      option.value = time;
+      option.textContent = time;
+
+      pickupTime.appendChild(option);
+    });
+  };
+
+  pickupLocation.addEventListener('change', updatePickupTimes);
+
+  updatePickupTimes();
   const submitButton = form.querySelector('button[type="submit"]');
 
 
