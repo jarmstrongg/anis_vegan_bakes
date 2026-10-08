@@ -106,6 +106,18 @@ document.addEventListener('DOMContentLoaded', () => {
       "4:00 PM",
       "5:00 PM",
       "6:00 PM"
+    ],
+
+    "Red Barn Cottage": [
+      "10:00 AM",
+      "11:00 AM",
+      "12:00 PM",
+      "1:00 PM",
+      "2:00 PM",
+      "3:00 PM",
+      "4:00 PM",
+      "5:00 PM",
+      "6:00 PM"
     ]
   };
 
@@ -126,6 +138,12 @@ document.addEventListener('DOMContentLoaded', () => {
       hours: "Sunday, 10:00 AM-6:00 PM",
       address: "9161 W 66th Ave | Arvada, CO",
       mapUrl: "https://maps.app.goo.gl/e385v1Qn1vcE5T9e8"
+    },
+
+    "Red Barn Cottage": {
+      hours: "Sunday, 10:00 AM-6:00 PM",
+      address: "6600 Miller St | Arvada, CO",
+      mapUrl: "https://maps.app.goo.gl/BpmQafUGVjjLuGWe7"
     }
   };
 
