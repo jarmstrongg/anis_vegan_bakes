@@ -2137,3 +2137,298 @@ img {
 .home-bake-carousel .carousel-control-next {
   right: 0.75rem;
 }
+
+/* -------------------------------------------------------------- NEW GALLERY AREA --------------------------------------------------- */
+
+/* Curated gallery page */
+.gallery-portfolio-hero {
+  background: var(--tan);
+  padding: 3.75rem 0;
+}
+
+.gallery-portfolio-hero h1 {
+  font-size: clamp(3.2rem, 6vw, 5.1rem);
+}
+
+.gallery-portfolio-hero p:last-child {
+  color: var(--brown);
+  margin: 0.85rem auto 0;
+  max-width: 34rem;
+}
+
+.gallery-featured {
+  background: var(--cream);
+  padding: 4.5rem 0 5rem;
+}
+
+.gallery-section-heading {
+  margin: 0 auto 2.5rem;
+  max-width: 38rem;
+}
+
+.gallery-section-heading h2 {
+  margin-bottom: 0;
+}
+
+.gallery-featured-carousel {
+  margin: 0 auto;
+  max-width: 60rem;
+}
+
+.gallery-featured-carousel .carousel-inner {
+  aspect-ratio: 3 / 2;
+  background: #efe0cd;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(68, 52, 36, 0.1);
+  overflow: hidden;
+}
+
+.gallery-featured-carousel .carousel-item {
+  background: #efe0cd;
+  height: 100%;
+  margin: 0;
+}
+
+.gallery-featured-carousel .carousel-item img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+/* Optional crop adjustments for individual slideshow images. */
+.gallery-featured-carousel .gallery-featured-carousel__image--top {
+  object-position: center top;
+}
+
+.gallery-featured-carousel .gallery-featured-carousel__image--bottom {
+  object-position: center bottom;
+}
+
+.gallery-featured-carousel__bar {
+  align-items: center;
+  display: flex;
+  gap: 1.25rem;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.gallery-featured-carousel__caption {
+  color: var(--brown);
+  font-family: var(--heading);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.2;
+  margin: 0;
+  max-width: 36rem;
+}
+
+.gallery-featured-carousel__controls {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.55rem;
+}
+
+.gallery-featured-carousel__counter,
+.gallery-viewer-modal__counter {
+  color: var(--green-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.gallery-featured-carousel__button {
+  align-items: center;
+  background: var(--white);
+  border: 1px solid rgba(49, 82, 54, 0.2);
+  border-radius: 50%;
+  color: var(--green);
+  display: inline-flex;
+  height: 2.5rem;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  width: 2.5rem;
+}
+
+.gallery-featured-carousel__button:hover,
+.gallery-featured-carousel__button:focus-visible {
+  background: var(--green);
+  color: var(--cream);
+}
+
+.gallery-collections {
+  background: var(--tan);
+  padding: 5rem 0;
+}
+
+.gallery-collection-card {
+  background: var(--white);
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 22px rgba(68, 52, 36, 0.08);
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 25rem;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+.gallery-collection-card:hover {
+  box-shadow: 0 15px 30px rgba(68, 52, 36, 0.14);
+  transform: translateY(-0.3rem);
+}
+
+.gallery-collection-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.gallery-collection-card__image {
+  aspect-ratio: 4 / 3;
+  display: block;
+  overflow: hidden;
+}
+
+.gallery-collection-card__image img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+  width: 100%;
+}
+
+.gallery-collection-card:hover .gallery-collection-card__image img {
+  transform: scale(1.04);
+}
+
+.gallery-collection-card__content {
+  color: var(--brown);
+  display: block;
+  font-size: 0.8rem;
+  padding: 1.35rem;
+}
+
+.gallery-collection-card__content strong {
+  color: var(--green);
+  display: block;
+  font-family: var(--heading);
+  font-size: 2rem;
+  line-height: 1;
+  margin: 0.3rem 0 0.65rem;
+}
+
+.gallery-collection-card__eyebrow {
+  color: var(--green-soft);
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gallery-cta {
+  background: var(--cream);
+  padding-top: 15;
+}
+
+.gallery-cta .container {
+  background: var(--green);
+  border-radius: var(--radius);
+  color: var(--cream);
+  max-width: 62rem;
+  padding: clamp(2.5rem, 6vw, 4rem) 1.5rem;
+}
+
+.gallery-cta h2 {
+  color: var(--cream);
+  margin-bottom: 0.6rem;
+}
+
+.gallery-cta p:not(.eyebrow) {
+  margin-bottom: 1.4rem;
+}
+
+.gallery-viewer-modal {
+  background: var(--cream);
+  border: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.gallery-viewer-modal .modal-header {
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem 0;
+}
+
+.gallery-viewer-modal .modal-title {
+  color: var(--green);
+  font-size: 2.2rem;
+}
+
+.gallery-viewer-modal .modal-body {
+  padding: 1rem 1.5rem 0;
+  text-align: center;
+}
+
+.gallery-viewer-modal img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-height: 65vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.gallery-viewer-modal__caption {
+  color: var(--brown);
+  font-family: var(--heading);
+  font-size: 1.35rem;
+  margin: 1rem auto 0;
+  max-width: 42rem;
+}
+
+.gallery-viewer-modal .modal-footer {
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .gallery-portfolio-hero {
+    padding: 3rem 0;
+  }
+
+  .gallery-featured-carousel .carousel-item img {
+    height: 100%;
+  }
+
+  .gallery-featured-carousel__bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .gallery-featured-carousel__controls {
+    width: 100%;
+  }
+
+  .gallery-featured-carousel__counter {
+    margin-right: auto;
+  }
+
+  .gallery-viewer-modal .modal-header,
+  .gallery-viewer-modal .modal-body,
+  .gallery-viewer-modal .modal-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .gallery-viewer-modal .modal-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
