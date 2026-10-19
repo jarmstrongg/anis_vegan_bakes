@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     "Red Barn Cottage": {
-      hours: "Sunday, 10:00 AM-6:00 PM",
+      hours: "Friday, 10:00 AM-6:00 PM",
       address: "6600 Miller St | Arvada, CO",
       mapUrl: "https://maps.app.goo.gl/BpmQafUGVjjLuGWe7"
     }
