@@ -151,14 +151,18 @@ const populatePickupSundays = () => {
   const specialPickupSchedule = {
     "2026-10-25": {
       "Oakhurst Park, Westminster": {
-        hours: "Sunday, October 25, 7:00 AM-9:30 AM",
+        hours: "Sunday, October 25, 7:00 AM-9:30 AM & 7:30 PM-9:00 PM",
         times: [
           "7:00 AM",
           "7:30 AM",
           "8:00 AM",
           "8:30 AM",
           "9:00 AM",
-          "9:30 AM"
+          "9:30 AM",
+          "7:30 PM",
+          "8:00 PM",
+          "8:30 PM",
+          "9:00 PM"
         ]
       }
     },
@@ -190,7 +194,7 @@ const populatePickupSundays = () => {
       }
     }
   };
-  
+
   const pickupTimesByLocation = {
     "Oakhurst Park, Westminster": [
       "11:00 AM",
