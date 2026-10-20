@@ -21,7 +21,59 @@ document.addEventListener('DOMContentLoaded', () => {
   const pickupTime = document.querySelector('#pickup-time');
   const pickupLocationInfo = document.querySelector('#pickup-location-info');
 
-  const populatePickupSundays = () => {
+
+// Original populate sundays function
+//   const populatePickupSundays = () => {
+//   const numberOfSundays = 8;
+//   const today = new Date();
+
+//   today.setHours(0, 0, 0, 0);
+
+//   const nextSunday = new Date(today);
+//   const daysUntilSunday = (7 - today.getDay()) % 7;
+
+//   nextSunday.setDate(today.getDate() + daysUntilSunday);
+
+//   // Do not allow same-day Sunday pickup.
+//   if (daysUntilSunday === 0) {
+//     nextSunday.setDate(nextSunday.getDate() + 7);
+//   }
+
+//   for (let index = 0; index < numberOfSundays; index += 1) {
+//     const pickupDate = new Date(nextSunday);
+
+//     pickupDate.setDate(
+//       nextSunday.getDate() + index * 7
+//     );
+
+//     const year = pickupDate.getFullYear();
+//     const month = String(
+//       pickupDate.getMonth() + 1
+//     ).padStart(2, '0');
+//     const day = String(
+//       pickupDate.getDate()
+//     ).padStart(2, '0');
+
+//     const option = document.createElement('option');
+
+//     option.value = `${year}-${month}-${day}`;
+
+//     option.textContent = pickupDate.toLocaleDateString(
+//       'en-US',
+//       {
+//         weekday: 'long',
+//         month: 'long',
+//         day: 'numeric',
+//         year: 'numeric',
+//       }
+//     );
+
+//     date.appendChild(option);
+//   }
+// };
+
+// special friday populate sundays function
+const populatePickupSundays = () => {
   const numberOfSundays = 8;
   const today = new Date();
 
@@ -37,48 +89,118 @@ document.addEventListener('DOMContentLoaded', () => {
     nextSunday.setDate(nextSunday.getDate() + 7);
   }
 
-  for (let index = 0; index < numberOfSundays; index += 1) {
-    const pickupDate = new Date(nextSunday);
+  // One-time pickup-date replacements.
+  // Key = normal Sunday date. pickupDate = replacement date.
+  const specialPickupDates = {
+    "2026-11-01": {
+      pickupDate: new Date(2026, 9, 30),
+      label: "Friday, October 30, 2026 — Special Oakhurst Park Pickup"
+    }
+  };
 
-    pickupDate.setDate(
+  for (let index = 0; index < numberOfSundays; index += 1) {
+    const sundayDate = new Date(nextSunday);
+
+    sundayDate.setDate(
       nextSunday.getDate() + index * 7
     );
+
+    const sundayYear = sundayDate.getFullYear();
+    const sundayMonth = String(
+      sundayDate.getMonth() + 1
+    ).padStart(2, "0");
+    const sundayDay = String(
+      sundayDate.getDate()
+    ).padStart(2, "0");
+
+    const sundayKey = `${sundayYear}-${sundayMonth}-${sundayDay}`;
+    const specialPickup = specialPickupDates[sundayKey];
+    const pickupDate = specialPickup
+      ? specialPickup.pickupDate
+      : sundayDate;
 
     const year = pickupDate.getFullYear();
     const month = String(
       pickupDate.getMonth() + 1
-    ).padStart(2, '0');
+    ).padStart(2, "0");
     const day = String(
       pickupDate.getDate()
-    ).padStart(2, '0');
+    ).padStart(2, "0");
 
-    const option = document.createElement('option');
+    const option = document.createElement("option");
 
     option.value = `${year}-${month}-${day}`;
 
-    option.textContent = pickupDate.toLocaleDateString(
-      'en-US',
-      {
-        weekday: 'long',
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      }
-    );
+    option.textContent = specialPickup
+      ? specialPickup.label
+      : pickupDate.toLocaleDateString(
+          "en-US",
+          {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+          }
+        );
 
     date.appendChild(option);
   }
 };
 
   populatePickupSundays();
+  const specialPickupSchedule = {
+    "2026-10-25": {
+      "Oakhurst Park, Westminster": {
+        hours: "Sunday, October 25, 7:00 AM-9:30 AM",
+        times: [
+          "7:00 AM",
+          "7:30 AM",
+          "8:00 AM",
+          "8:30 AM",
+          "9:00 AM",
+          "9:30 AM"
+        ]
+      }
+    },
+
+    "2026-10-30": {
+      "Oakhurst Park, Westminster": {
+        hours: "Friday, October 30, 11:00 AM-8:00 PM",
+        times: [
+          "11:00 AM",
+          "11:30 AM",
+          "12:00 PM",
+          "12:30 PM",
+          "1:00 PM",
+          "1:30 PM",
+          "2:00 PM",
+          "2:30 PM",
+          "3:00 PM",
+          "3:30 PM",
+          "4:00 PM",
+          "4:30 PM",
+          "5:00 PM",
+          "5:30 PM",
+          "6:00 PM",
+          "6:30 PM",
+          "7:00 PM",
+          "7:30 PM",
+          "8:00 PM"
+        ]
+      }
+    }
+  };
+  
   const pickupTimesByLocation = {
     "Oakhurst Park, Westminster": [
-      "7:00 AM",
-      "7:30 AM",
-      "8:00 PM",
-      "8:30 PM",
-      "9:00 PM",
-      "9:30 PM"
+      "11:00 AM",
+      "12:00 AM",
+      "1:00 PM",
+      "2:00 PM",
+      "3:00 PM",
+      "4:00 PM", 
+      "5:00 PM",
+      "6:00 PM"
     ],
 
     "Arvada Farmers Market": [
@@ -121,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const pickupLocationDetails = {
     "Oakhurst Park, Westminster": {
-      hours: "Sunday, 7:00 AM-9:30 AM",
+      hours: "Sunday, 11:00 AM-6:00 PM",
       address: "9311 Lark Bunting Dr, Westminster, CO 80021",
       mapUrl: "https://maps.app.goo.gl/sDKtHfLt8nXAdV116"
     },
@@ -146,8 +268,13 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const updatePickupTimes = () => {
+    const specialSchedule =
+      specialPickupSchedule[date.value]?.[pickupLocation.value];
+
     const availableTimes =
-      pickupTimesByLocation[pickupLocation.value] || [];
+      specialSchedule?.times ||
+      pickupTimesByLocation[pickupLocation.value] ||
+      [];
 
     pickupTime.innerHTML =
       '<option value="" selected disabled>Select a time</option>';
@@ -166,6 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const details =
       pickupLocationDetails[pickupLocation.value];
 
+    const specialSchedule =
+      specialPickupSchedule[date.value]?.[pickupLocation.value];
+
     if (!details) {
       pickupLocationInfo.innerHTML = '';
       return;
@@ -173,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pickupLocationInfo.innerHTML = `
         <i class="bi bi-clock"></i>
-        <strong>${details.hours}</strong>
+        <strong>${specialSchedule?.hours || details.hours}</strong>
         &nbsp;•&nbsp;
         <a
           href="${details.mapUrl}"
@@ -189,6 +319,11 @@ document.addEventListener('DOMContentLoaded', () => {
   pickupLocation.addEventListener('change', () => {
     updatePickupTimes();
     updatePickupLocationInfo();
+  });
+
+  date.addEventListener("change", () => {
+  updatePickupTimes();
+  updatePickupLocationInfo();
   });
 
   updatePickupTimes();
