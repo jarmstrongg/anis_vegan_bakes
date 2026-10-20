@@ -497,6 +497,9 @@ const populatePickupSundays = () => {
       ),
 
       paymentPreference: 'Pay at Pickup',
+
+      newsletterOptIn:
+        document.querySelector('#newsletter-opt-in')?.checked === true,
     };
 
     const originalButtonText = submitButton
