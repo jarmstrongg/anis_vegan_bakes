@@ -14,6 +14,9 @@ function getDenverTimeParts(date = new Date()) {
   const formatter = new Intl.DateTimeFormat("en-US", {
     timeZone: ORDER_WINDOW.timeZone,
     weekday: "short",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
@@ -41,6 +44,9 @@ function getDenverTimeParts(date = new Date()) {
 
   return {
     day: dayNumbers[values.weekday],
+    year: Number(values.year),
+    month: Number(values.month),
+    date: Number(values.day),
     hour: Number(values.hour),
     minute: Number(values.minute),
     second: Number(values.second)
@@ -49,6 +55,15 @@ function getDenverTimeParts(date = new Date()) {
 
 function isOrderingOpen(date = new Date()) {
   const now = getDenverTimeParts(date);
+
+  // Temporary early closing: October 29, 2026, at noon Mountain Time.
+  if (
+    now.year === 2026 &&
+    now.month === 10 &&
+    now.date === 29
+  ) {
+    return now.hour < 12;
+  }
 
   // Sunday
   if (now.day === 0) {
@@ -128,7 +143,20 @@ function updateOrderingWindow() {
   `;
 }
 
-document.addEventListener("DOMContentLoaded", updateOrderingWindow);
+document.addEventListener("DOMContentLoaded", () => {
+  updateOrderingWindow();
+
+  // Refresh at the temporary October 29 noon cutoff, if the page is already open.
+  const temporaryEarlyClosingAt = Date.parse(
+    "2026-10-29T12:00:00-06:00"
+  );
+  const millisecondsUntilEarlyClosing =
+    temporaryEarlyClosingAt - Date.now();
+
+  if (millisecondsUntilEarlyClosing > 0) {
+    setTimeout(updateOrderingWindow, millisecondsUntilEarlyClosing);
+  }
+});
 
 // Recheck once per minute in case the page remains open
 setInterval(updateOrderingWindow, 60 * 1000);
