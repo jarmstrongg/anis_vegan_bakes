@@ -94,7 +94,7 @@ const populatePickupSundays = () => {
   const specialPickupDates = {
     "2026-11-01": {
       pickupDate: new Date(2026, 9, 30),
-      label: "Friday, October 30, 2026 — Special Oakhurst Park Pickup"
+      label: "Friday, October 30, 2026 — Special Pickup Day"
     }
   };
 
