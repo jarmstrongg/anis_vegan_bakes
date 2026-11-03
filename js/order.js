@@ -237,11 +237,7 @@ const populatePickupSundays = () => {
       "11:00 AM",
       "12:00 PM",
       "1:00 PM",
-      "2:00 PM",
-      "3:00 PM",
-      "4:00 PM",
-      "5:00 PM",
-      "6:00 PM"
+      "2:00 PM"
     ]
   };
 
@@ -265,7 +261,7 @@ const populatePickupSundays = () => {
     },
 
     "Red Barn Cottage": {
-      hours: "Friday, 10:00 AM-6:00 PM",
+      hours: "Sunday, 10:00 AM-2:00 PM",
       address: "6600 Miller St | Arvada, CO",
       mapUrl: "https://maps.app.goo.gl/BpmQafUGVjjLuGWe7"
     }
