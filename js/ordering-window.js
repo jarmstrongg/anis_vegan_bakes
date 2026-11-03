@@ -1,4 +1,3 @@
-console.log("ordering-window.js loaded!");
 // =====================================================
 // Ani's Vegan Bakes Ordering Window
 // Open Monday at 9:00 AM through Thursday at 11:59 PM
@@ -55,15 +54,6 @@ function getDenverTimeParts(date = new Date()) {
 
 function isOrderingOpen(date = new Date()) {
   const now = getDenverTimeParts(date);
-
-  // Temporary early closing: October 29, 2026, at noon Mountain Time.
-  if (
-    now.year === 2026 &&
-    now.month === 10 &&
-    now.date === 29
-  ) {
-    return now.hour < 12;
-  }
 
   // Sunday
   if (now.day === 0) {
@@ -145,17 +135,6 @@ function updateOrderingWindow() {
 
 document.addEventListener("DOMContentLoaded", () => {
   updateOrderingWindow();
-
-  // Refresh at the temporary October 29 noon cutoff, if the page is already open.
-  const temporaryEarlyClosingAt = Date.parse(
-    "2026-10-29T12:00:00-06:00"
-  );
-  const millisecondsUntilEarlyClosing =
-    temporaryEarlyClosingAt - Date.now();
-
-  if (millisecondsUntilEarlyClosing > 0) {
-    setTimeout(updateOrderingWindow, millisecondsUntilEarlyClosing);
-  }
 });
 
 // Recheck once per minute in case the page remains open
