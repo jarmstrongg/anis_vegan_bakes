@@ -44,11 +44,11 @@ const populatePickupSundays = () => {
     "2026-11-22": [
       {
         pickupDate: new Date(2026, 10, 24),
-        label: "Tuesday, November 24, 2026 — Boulder Pickup"
+        label: "TUESDAY, November 24, 2026"
       },
       {
         pickupDate: new Date(2026, 10, 25),
-        label: "Wednesday, November 25, 2026 — Boulder Pickup"
+        label: "WEDNESDAY, November 25, 2026"
       }
     ],
     "2026-11-29": []
