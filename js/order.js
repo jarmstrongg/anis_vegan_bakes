@@ -21,8 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const pickupTime = document.querySelector('#pickup-time');
   const pickupLocationInfo = document.querySelector('#pickup-location-info');
 
+  const OAKHURST_PICKUP_LOCATION = "Oakhurst Park, Westminster";
+  const BOULDER_PICKUP_LOCATION = "Boulder Pickup — January Coffee Parking Lot";
+  const BOULDER_PICKUP_DATES = [
+    { value: "2026-11-15", label: "Sunday, November 15, 2026" },
+    { value: "2026-11-24", label: "Tuesday, November 24, 2026" },
+    { value: "2026-11-25", label: "Wednesday, November 25, 2026" }
+  ];
+  const OAKHURST_EXTRA_PICKUP_DATES = [
+    { value: "2026-11-24", label: "Tuesday, November 24, 2026" },
+    { value: "2026-11-25", label: "Wednesday, November 25, 2026" }
+  ];
 
-const populatePickupSundays = () => {
+  const addPickupDateOption = (value, label) => {
+    const option = document.createElement("option");
+
+    option.value = value;
+    option.textContent = label;
+    date.appendChild(option);
+  };
+
+  const populatePickupSundays = () => {
   const numberOfSundays = 8;
   const today = new Date();
 
@@ -38,21 +57,10 @@ const populatePickupSundays = () => {
     nextSunday.setDate(nextSunday.getDate() + 7);
   }
 
-  // Temporary Thanksgiving-week replacements. The Sunday dates listed as
-  // keys are not offered; their Boulder pickup days are shown instead.
-  const specialPickupDates = {
-    "2026-11-22": [
-      {
-        pickupDate: new Date(2026, 10, 24),
-        label: "TUESDAY, November 24, 2026"
-      },
-      {
-        pickupDate: new Date(2026, 10, 25),
-        label: "WEDNESDAY, November 25, 2026"
-      }
-    ],
-    "2026-11-29": []
-  };
+  const unavailableSundayDates = new Set([
+    "2026-11-22",
+    "2026-11-29"
+  ]);
 
   for (let index = 0; index < numberOfSundays; index += 1) {
     const sundayDate = new Date(nextSunday);
@@ -69,36 +77,64 @@ const populatePickupSundays = () => {
       sundayDate.getDate()
     ).padStart(2, "0");
 
-    const sundayKey = `${sundayYear}-${sundayMonth}-${sundayDay}`;
-    const pickupDates = specialPickupDates[sundayKey];
-    const datesToAdd = pickupDates || [{ pickupDate: sundayDate }];
+    const dateValue = `${sundayYear}-${sundayMonth}-${sundayDay}`;
 
-    datesToAdd.forEach(({ pickupDate, label }) => {
-      const year = pickupDate.getFullYear();
-      const month = String(pickupDate.getMonth() + 1).padStart(2, "0");
-      const day = String(pickupDate.getDate()).padStart(2, "0");
-      const option = document.createElement("option");
+    // No Sunday pickups are offered on November 22 or November 29.
+    if (unavailableSundayDates.has(dateValue)) {
+      continue;
+    }
 
-      option.value = `${year}-${month}-${day}`;
-      option.textContent = label || pickupDate.toLocaleDateString(
-        "en-US",
-        {
-          weekday: "long",
-          month: "long",
-          day: "numeric",
-          year: "numeric"
-        }
-      );
-
-      date.appendChild(option);
-    });
+    addPickupDateOption(
+      dateValue,
+      sundayDate.toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+      })
+    );
   }
 };
 
-  populatePickupSundays();
+  const populatePickupDates = () => {
+    const selectedDate = date.value;
 
-  const BOULDER_PICKUP_LOCATION = "Boulder Pickup — Location TBD";
+    date.innerHTML = '<option value="">Choose a Pickup Day</option>';
+
+    if (pickupLocation.value === BOULDER_PICKUP_LOCATION) {
+      BOULDER_PICKUP_DATES.forEach(({ value, label }) => {
+        addPickupDateOption(value, label);
+      });
+    } else {
+      populatePickupSundays();
+
+      if (pickupLocation.value === OAKHURST_PICKUP_LOCATION) {
+        OAKHURST_EXTRA_PICKUP_DATES.forEach(({ value, label }) => {
+          addPickupDateOption(value, label);
+        });
+
+        [...date.options]
+          .slice(1)
+          .sort((firstDate, secondDate) =>
+            firstDate.value.localeCompare(secondDate.value)
+          )
+          .forEach((option) => date.appendChild(option));
+      }
+    }
+
+    if ([...date.options].some((option) => option.value === selectedDate)) {
+      date.value = selectedDate;
+    }
+  };
+
   const boulderPickupTimes = [
+    "3:00 PM",
+    "4:00 PM",
+    "5:00 PM",
+    "6:00 PM",
+    "7:00 PM"
+  ];
+  const oakhurstPickupTimes = [
     "11:00 AM",
     "12:00 PM",
     "1:00 PM",
@@ -106,37 +142,41 @@ const populatePickupSundays = () => {
     "3:00 PM",
     "4:00 PM",
     "5:00 PM",
-    "6:00 PM",
-    "7:00 PM"
+    "6:00 PM"
   ];
 
-  // Temporary Boulder pickup schedule for Thanksgiving week only.
+  // Temporary November Boulder pickup schedule.
   const specialPickupSchedule = {
+    "2026-11-15": {
+      [BOULDER_PICKUP_LOCATION]: {
+        hours: "Sunday, November 15, 3:00 PM-7:00 PM",
+        times: boulderPickupTimes
+      }
+    },
     "2026-11-24": {
       [BOULDER_PICKUP_LOCATION]: {
-        hours: "Tuesday, November 24, 11:00 AM-7:00 PM",
+        hours: "Tuesday, November 24, 3:00 PM-7:00 PM",
         times: boulderPickupTimes
+      },
+      [OAKHURST_PICKUP_LOCATION]: {
+        hours: "Tuesday, November 24, 11:00 AM-6:00 PM",
+        times: oakhurstPickupTimes
       }
     },
     "2026-11-25": {
       [BOULDER_PICKUP_LOCATION]: {
-        hours: "Wednesday, November 25, 11:00 AM-7:00 PM",
+        hours: "Wednesday, November 25, 3:00 PM-7:00 PM",
         times: boulderPickupTimes
+      },
+      [OAKHURST_PICKUP_LOCATION]: {
+        hours: "Wednesday, November 25, 11:00 AM-6:00 PM",
+        times: oakhurstPickupTimes
       }
     }
   };
 
   const pickupTimesByLocation = {
-    "Oakhurst Park, Westminster": [
-      "11:00 AM",
-      "12:00 PM",
-      "1:00 PM",
-      "2:00 PM",
-      "3:00 PM",
-      "4:00 PM",
-      "5:00 PM",
-      "6:00 PM"
-    ],
+    [OAKHURST_PICKUP_LOCATION]: oakhurstPickupTimes,
     "Red Barn Cottage": [
       "10:00 AM",
       "11:00 AM",
@@ -147,7 +187,7 @@ const populatePickupSundays = () => {
   };
 
   const pickupLocationDetails = {
-    "Oakhurst Park, Westminster": {
+    [OAKHURST_PICKUP_LOCATION]: {
       hours: "Sunday, 11:00 AM-6:00 PM",
       address: "9311 Lark Bunting Dr, Westminster, CO 80021",
       mapUrl: "https://maps.app.goo.gl/sDKtHfLt8nXAdV116"
@@ -158,31 +198,9 @@ const populatePickupSundays = () => {
       mapUrl: "https://maps.app.goo.gl/BpmQafUGVjjLuGWe7"
     },
     [BOULDER_PICKUP_LOCATION]: {
-      hours: "November 24-25, 11:00 AM-7:00 PM",
-      address: "Boulder pickup location to be announced",
-      mapUrl: null
-    }
-  };
-
-  const updateAvailablePickupLocations = () => {
-    const isBoulderPickup = Boolean(specialPickupSchedule[date.value]);
-
-    [...pickupLocation.options].forEach((option) => {
-      const isBoulderOption = option.value === BOULDER_PICKUP_LOCATION;
-      const isAvailable = isBoulderPickup
-        ? isBoulderOption
-        : !isBoulderOption;
-
-      option.disabled = !isAvailable;
-      option.hidden = !isAvailable;
-    });
-
-    const selectedOption = pickupLocation.options[pickupLocation.selectedIndex];
-
-    if (!selectedOption || selectedOption.disabled) {
-      pickupLocation.value = isBoulderPickup
-        ? BOULDER_PICKUP_LOCATION
-        : "Oakhurst Park, Westminster";
+      hours: "November 15, 24, and 25, 3:00 PM-7:00 PM",
+      address: "1886 30th St. | Ste B |  Boulder, CO",
+      mapUrl: "https://maps.app.goo.gl/yNX9qi9utqCwjeWp7"
     }
   };
 
@@ -248,17 +266,17 @@ const populatePickupSundays = () => {
   };
 
   pickupLocation.addEventListener('change', () => {
+    populatePickupDates();
     updatePickupTimes();
     updatePickupLocationInfo();
   });
 
   date.addEventListener("change", () => {
-    updateAvailablePickupLocations();
     updatePickupTimes();
     updatePickupLocationInfo();
   });
 
-  updateAvailablePickupLocations();
+  populatePickupDates();
   updatePickupTimes();
   updatePickupLocationInfo();
 
