@@ -513,13 +513,31 @@
 
                     <p class="section-copy"><strong>*These are batch order prices*</strong> Set a quantity for anything you'd like to add. Prices are placeholders and ready for your finalized menu.</p>
 
+                    <article class="order-product" data-product-id="Dinner Rolls Large Batch" data-product-name="Vegan Dinner Rolls (Batch)" data-price="20.00">
+                      <img src="images/products/dinner-roll1.jpg" alt="Vegan Dinner Rolls">
+
+                      <div>
+                        <span class="menu-product-category">.</span>
+                        <h3>Vegan Dinner Rolls (Large Batch)</h3>
+                        <p><strong>15 rolls per batch.</strong> Classic and fluffy dinner rolls with no refined-sugars. Perfect for holiday dinners with the family!</p>
+                        <span class="product-price">$20.00/batch</span>
+                      </div>
+
+                      <div class="quantity-control" aria-label="dinner roll large batch quantity">
+
+                        <button type="button" data-quantity-action="decrease" aria-label="Decrease dinner roll large batch quantity">&minus;</button>
+                        <input id="qty-dinner-roll-large-batch" name="items[dinner_roll_large_batch][quantity]" value="0" min="0" max="24" inputmode="numeric" data-quantity readonly>
+                        <button type="button" data-quantity-action="increase" aria-label="Increase dinner roll large batch quantity">+</button>
+                      </div>
+                    </article>
+
                     <article class="order-product" data-product-id="Dinner Rolls Batch" data-product-name="Vegan Dinner Rolls (Batch)" data-price="10.00">
                       <img src="images/products/dinner-roll1.jpg" alt="Vegan Dinner Rolls">
 
                       <div>
                         <span class="menu-product-category">.</span>
-                        <h3>Vegan Dinner Rolls</h3>
-                        <p><strong>15 rolls per batch.</strong> Classic and fluffy dinner rolls with no refined-sugars. Perfect for holiday dinners with the family!</p>
+                        <h3>Vegan Dinner Rolls (Regular Batch)</h3>
+                        <p><strong>8 rolls per batch.</strong> Classic and fluffy dinner rolls with no refined-sugars. Perfect for holiday dinners with the family!</p>
                         <span class="product-price">$10.00/batch</span>
                       </div>
 
