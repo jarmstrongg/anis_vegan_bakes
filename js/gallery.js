@@ -38,9 +38,24 @@ document.addEventListener("DOMContentLoaded", () => {
           caption: "Gluten-Free Oatmeal Chocolate Chip Cookie."
         },
         {
+          src: "images/products/maplecakebite2.jpg",
+          alt: "Pumpkin-Maple Cake Bite",
+          caption: "Pumpkin-Maple Cake Bites"
+        },
+        {
           src: "images/products/zucchini2.jpg",
           alt: "Zucchini Bread Loaf",
           caption: "Zucchini bread loaf."
+        },
+        {
+          src: "images/products/SCR1.jpg",
+          alt: "Strawberry Cinnamon Rolls",
+          caption: "Strawberry Cinnamon Rolls"
+        },
+        {
+          src: "images/products/jack1.jpg",
+          alt: "Jack Skellington Cookie",
+          caption: "Jack Skellington Cookies"
         },
         {
           src: "images/products/pumpkin-cookies2.jpg",
@@ -56,6 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
           src: "images/products/bcookie3.jpg",
           alt: "Biscoff Cake Bite",
           caption: "Biscoff Cake Bites."
+        },
+        {
+          src: "images/products/chai-orangecardy-split.jpeg",
+          alt: "Chai and Orange Cardamom Cinnamon Rolls",
+          caption: "Chai and Orange Cardamom Cinnamon Rolls"
+        },
+        {
+          src: "images/products/dinner-roll2.jpg",
+          alt: "Thanksgiving Dinner Rolls",
+          caption: "Thanksgiving Dinner Rolls"
         }
       ]
     },
