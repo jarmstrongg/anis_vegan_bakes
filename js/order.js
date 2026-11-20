@@ -23,15 +23,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const OAKHURST_PICKUP_LOCATION = "Oakhurst Park, Westminster";
   const BOULDER_PICKUP_LOCATION = "Boulder Pickup — January Coffee Parking Lot";
+  // Number of upcoming Sunday pickup dates shown to customers.
+  const NUMBER_OF_SUNDAY_OPTIONS = 3;
+
+  // Sundays with no pickup. These are skipped and do not count toward
+  // NUMBER_OF_SUNDAY_OPTIONS.
+  const UNAVAILABLE_SUNDAY_DATES = new Set([
+    "2026-11-22",
+    "2026-11-29"
+  ]);
+
+  // One-off pickup dates. Each date is offered only through its
+  // lastOrderDate (America/Denver), then disappears from the form.
+  // Thanksgiving week 2026: orders for Nov 24/25 closed Thursday, Nov 19.
   const BOULDER_PICKUP_DATES = [
-    { value: "2026-11-15", label: "Sunday, November 15, 2026" },
-    { value: "2026-11-24", label: "Tuesday, November 24, 2026" },
-    { value: "2026-11-25", label: "Wednesday, November 25, 2026" }
+    { value: "2026-11-24", label: "Tuesday, November 24, 2026", lastOrderDate: "2026-11-19" },
+    { value: "2026-11-25", label: "Wednesday, November 25, 2026", lastOrderDate: "2026-11-19" }
   ];
   const OAKHURST_EXTRA_PICKUP_DATES = [
-    { value: "2026-11-24", label: "Tuesday, November 24, 2026" },
-    { value: "2026-11-25", label: "Wednesday, November 25, 2026" }
+    { value: "2026-11-24", label: "Tuesday, November 24, 2026", lastOrderDate: "2026-11-19" },
+    { value: "2026-11-25", label: "Wednesday, November 25, 2026", lastOrderDate: "2026-11-19" }
   ];
+
+  // Today's date in America/Denver as YYYY-MM-DD, regardless of the
+  // customer's browser time zone.
+  const getDenverDateKey = (now = new Date()) => {
+    const parts = {};
+
+    new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Denver",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    })
+      .formatToParts(now)
+      .forEach(({ type, value }) => {
+        parts[type] = value;
+      });
+
+    return `${parts.year}-${parts.month}-${parts.day}`;
+  };
+
+  const isPickupDateOrderable = ({ lastOrderDate }) =>
+    getDenverDateKey() <= lastOrderDate;
+
+  // Boulder is only offered while it has an orderable one-off date.
+  // Removing the option (rather than hiding it) works on iOS Safari too.
+  const boulderOption = [...pickupLocation.options].find(
+    (option) => option.value === BOULDER_PICKUP_LOCATION
+  );
+
+  if (boulderOption && !BOULDER_PICKUP_DATES.some(isPickupDateOrderable)) {
+    if (pickupLocation.value === BOULDER_PICKUP_LOCATION) {
+      pickupLocation.value = OAKHURST_PICKUP_LOCATION;
+    }
+
+    boulderOption.remove();
+  }
 
   const addPickupDateOption = (value, label) => {
     const option = document.createElement("option");
@@ -41,60 +89,43 @@ document.addEventListener('DOMContentLoaded', () => {
     date.appendChild(option);
   };
 
+  const sundayLabelFormatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: "UTC",
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  });
+
   const populatePickupSundays = () => {
-  const numberOfSundays = 8;
-  const today = new Date();
+    // Work in UTC calendar dates built from Denver's "today" so the
+    // customer's browser time zone cannot shift the dates.
+    const [year, month, day] = getDenverDateKey().split("-").map(Number);
+    const sundayDate = new Date(Date.UTC(year, month - 1, day));
 
-  today.setHours(0, 0, 0, 0);
-
-  const nextSunday = new Date(today);
-  const daysUntilSunday = (7 - today.getDay()) % 7;
-
-  nextSunday.setDate(today.getDate() + daysUntilSunday);
-
-  // Do not allow same-day Sunday pickup.
-  if (daysUntilSunday === 0) {
-    nextSunday.setDate(nextSunday.getDate() + 7);
-  }
-
-  const unavailableSundayDates = new Set([
-    "2026-11-22",
-    "2026-11-29"
-  ]);
-
-  for (let index = 0; index < numberOfSundays; index += 1) {
-    const sundayDate = new Date(nextSunday);
-
-    sundayDate.setDate(
-      nextSunday.getDate() + index * 7
+    // Next Sunday. Same-day Sunday pickup is not allowed.
+    sundayDate.setUTCDate(
+      sundayDate.getUTCDate() + ((7 - sundayDate.getUTCDay()) % 7 || 7)
     );
 
-    const sundayYear = sundayDate.getFullYear();
-    const sundayMonth = String(
-      sundayDate.getMonth() + 1
-    ).padStart(2, "0");
-    const sundayDay = String(
-      sundayDate.getDate()
-    ).padStart(2, "0");
+    let sundaysAdded = 0;
 
-    const dateValue = `${sundayYear}-${sundayMonth}-${sundayDay}`;
+    // The week cap is a safety limit in case many Sundays are blocked.
+    for (
+      let week = 0;
+      sundaysAdded < NUMBER_OF_SUNDAY_OPTIONS && week < 12;
+      week += 1
+    ) {
+      const dateValue = sundayDate.toISOString().slice(0, 10);
 
-    // No Sunday pickups are offered on November 22 or November 29.
-    if (unavailableSundayDates.has(dateValue)) {
-      continue;
+      if (!UNAVAILABLE_SUNDAY_DATES.has(dateValue)) {
+        addPickupDateOption(dateValue, sundayLabelFormatter.format(sundayDate));
+        sundaysAdded += 1;
+      }
+
+      sundayDate.setUTCDate(sundayDate.getUTCDate() + 7);
     }
-
-    addPickupDateOption(
-      dateValue,
-      sundayDate.toLocaleDateString("en-US", {
-        weekday: "long",
-        month: "long",
-        day: "numeric",
-        year: "numeric"
-      })
-    );
-  }
-};
+  };
 
   const populatePickupDates = () => {
     const selectedDate = date.value;
@@ -102,14 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
     date.innerHTML = '<option value="">Choose a Pickup Day</option>';
 
     if (pickupLocation.value === BOULDER_PICKUP_LOCATION) {
-      BOULDER_PICKUP_DATES.forEach(({ value, label }) => {
+      BOULDER_PICKUP_DATES.filter(isPickupDateOrderable).forEach(({ value, label }) => {
         addPickupDateOption(value, label);
       });
     } else {
       populatePickupSundays();
 
       if (pickupLocation.value === OAKHURST_PICKUP_LOCATION) {
-        OAKHURST_EXTRA_PICKUP_DATES.forEach(({ value, label }) => {
+        OAKHURST_EXTRA_PICKUP_DATES.filter(isPickupDateOrderable).forEach(({ value, label }) => {
           addPickupDateOption(value, label);
         });
 
@@ -145,14 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "6:00 PM"
   ];
 
-  // Temporary November Boulder pickup schedule.
+  // Thanksgiving week 2026 pickup hours (Oakhurst and Boulder only).
   const specialPickupSchedule = {
-    "2026-11-15": {
-      [BOULDER_PICKUP_LOCATION]: {
-        hours: "Sunday, November 15, 3:00 PM-7:00 PM",
-        times: boulderPickupTimes
-      }
-    },
     "2026-11-24": {
       [BOULDER_PICKUP_LOCATION]: {
         hours: "Tuesday, November 24, 3:00 PM-7:00 PM",
@@ -198,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mapUrl: "https://maps.app.goo.gl/BpmQafUGVjjLuGWe7"
     },
     [BOULDER_PICKUP_LOCATION]: {
-      hours: "November 15, 24, and 25, 3:00 PM-7:00 PM",
+      hours: "November 24 and 25, 3:00 PM-7:00 PM",
       address: "1886 30th St. | Ste B |  Boulder, CO",
       mapUrl: "https://maps.app.goo.gl/yNX9qi9utqCwjeWp7"
     }

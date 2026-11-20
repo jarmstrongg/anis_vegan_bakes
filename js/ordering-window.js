@@ -6,8 +6,31 @@
 
 const ORDER_WINDOW = {
   timeZone: "America/Denver",
-  mondayOpenHour: 9
+  mondayOpenHour: 9,
+
+  // One-off changes to the normal window, keyed by America/Denver date.
+  // closed: no ordering that day. openHour: ordering opens at this hour.
+  // Thanksgiving week 2026: closed Monday Nov 23, opens Tuesday Nov 24 at 9 AM.
+  exceptions: {
+    "2026-11-23": { closed: true },
+    "2026-11-24": { openHour: 9 }
+  },
+
+  // Replaces "Monday" in the closed message between these dates (inclusive).
+  reopenNotice: {
+    from: "2026-11-20",
+    through: "2026-11-24",
+    label: "Tuesday, November 24"
+  }
 };
+
+function getOrderWindowDateKey(now) {
+  return [
+    now.year,
+    String(now.month).padStart(2, "0"),
+    String(now.date).padStart(2, "0")
+  ].join("-");
+}
 
 function getDenverTimeParts(date = new Date()) {
   const formatter = new Intl.DateTimeFormat("en-US", {
@@ -54,6 +77,15 @@ function getDenverTimeParts(date = new Date()) {
 
 function isOrderingOpen(date = new Date()) {
   const now = getDenverTimeParts(date);
+  const exception = ORDER_WINDOW.exceptions[getOrderWindowDateKey(now)];
+
+  if (exception?.closed) {
+    return false;
+  }
+
+  if (exception?.openHour !== undefined) {
+    return now.hour >= exception.openHour;
+  }
 
   // Sunday
   if (now.day === 0) {
@@ -111,6 +143,13 @@ function updateOrderingWindow() {
     submitButton.disabled = true;
   }
 
+  const todayKey = getOrderWindowDateKey(getDenverTimeParts());
+  const { reopenNotice } = ORDER_WINDOW;
+  const reopenDay =
+    todayKey >= reopenNotice.from && todayKey <= reopenNotice.through
+      ? reopenNotice.label
+      : "Monday";
+
   status.innerHTML = `
     <div class="ordering-closed" role="status">
       <p class="ordering-label">Weekly ordering</p>
@@ -118,7 +157,7 @@ function updateOrderingWindow() {
       <h2>Ordering is currently closed</h2>
 
       <p>
-        Ordering reopens Monday at
+        Ordering reopens ${reopenDay} at
         <strong>9:00 AM Mountain Time</strong>.
       </p>
 
